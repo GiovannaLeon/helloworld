@@ -1,6 +1,8 @@
 Lanzada por el usuario Giovanna leon
 
 [Pipeline] Start of Pipeline
+[Pipeline] withEnv
+[Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Get Code)
 [Pipeline] node
@@ -23,21 +25,21 @@ C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFI
 The recommended git tool is: NONE
 No credentials specified
 Fetching changes from the remote Git repository
+Checking out Revision a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 (refs/remotes/origin/master)
  > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes\.git # timeout=10
  > git.exe config remote.origin.url https://github.com/GiovannaLeon/helloworld.git # timeout=10
 Fetching upstream changes from https://github.com/GiovannaLeon/helloworld.git
  > git.exe --version # timeout=10
  > git --version # 'git version 2.47.1.windows.1'
  > git.exe fetch --tags --force --progress -- https://github.com/GiovannaLeon/helloworld.git +refs/heads/*:refs/remotes/origin/* # timeout=10
-Checking out Revision eb8d8309fcd89b880e7bc330d180dfeceaf53b9a (refs/remotes/origin/master)
  > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
  > git.exe config core.sparsecheckout # timeout=10
- > git.exe checkout -f eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
+ > git.exe checkout -f a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
  > git.exe branch -a -v --no-abbrev # timeout=10
  > git.exe branch -D master # timeout=10
- > git.exe checkout -b master eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
+ > git.exe checkout -b master a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
 Commit message: "Add files via upload"
- > git.exe rev-list --no-walk eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
+ > git.exe rev-list --no-walk a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
 [Pipeline] bat
 
 C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>dir
@@ -46,24 +48,25 @@ C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFI
 
  Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes
 
-20/01/2025  23:16    <DIR>          .
-20/01/2025  23:53    <DIR>          ..
-20/01/2025  23:16            53.248 .coverage
+25/01/2025  12:00    <DIR>          .
+23/01/2025  16:51    <DIR>          ..
+25/01/2025  12:00            53.248 .coverage
 20/01/2025  01:38                40 .gitignore
 20/01/2025  01:38    <DIR>          .pytest_cache
 20/01/2025  01:38    <DIR>          app
-20/01/2025  23:16             2.273 coverage.xml
-20/01/2025  23:16               500 flake8.out
+25/01/2025  12:00             2.273 coverage.xml
+25/01/2025  12:00    <DIR>          CP2.1.1
+25/01/2025  12:00               500 flake8.out
 20/01/2025  01:38    <DIR>          jenkinsFile_1
 20/01/2025  01:38    <DIR>          jenkinsFile_2
 20/01/2025  01:38    <DIR>          JenkinsFile_3
 20/01/2025  01:38    <DIR>          jenkinsfile_4
 20/01/2025  01:38               175 pytest.ini
 20/01/2025  01:38               418 README.md
-20/01/2025  23:16             1.401 result-unit.xml
+25/01/2025  12:00             1.401 result-unit.xml
 20/01/2025  01:38    <DIR>          test
                7 archivos         58.055 bytes
-               9 dirs  563.158.159.360 bytes libres
+              10 dirs  560.652.320.768 bytes libres
 [Pipeline] echo
 Workspace: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes
 [Pipeline] }
@@ -94,7 +97,7 @@ C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFI
 
 C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>SET PYTHONPATH=C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes 
 
-C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>C:\Users\amaro\AppData\Local\Programs\Python\Python313\python.exe -m pytest --junitxml=result-unit.xml test\unit 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe run --branch --source=app --omit=app\__init__.py,app\api.py -m pytest  --junitxml=result-unit.xml test\unit 
 ============================= test session starts =============================
 platform win32 -- Python 3.13.0, pytest-8.3.4, pluggy-1.5.0
 rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes
@@ -105,7 +108,7 @@ test\unit\calc_test.py ........                                          [ 80%]
 test\unit\util_test.py ..                                                [100%]
 
 - generated xml file: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes\result-unit.xml -
-============================= 10 passed in 0.21s ==============================
+============================= 10 passed in 0.14s ==============================
 [Pipeline] sleep
 Sleeping for 5 Seg
 [Pipeline] junit
@@ -198,7 +201,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Bandit]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 0, Quality gate: 4,00)
 [Bandit] Health report is disabled - skipping
 [Bandit] Created analysis result for 0 issues (found 0 new issues, fixed 0 issues)
-[Bandit] Attaching ResultAction with ID 'pylint' to build 'Unir/JENKINSFILE_agentes #19'.
+[Bandit] Attaching ResultAction with ID 'pylint' to build 'Unir/JENKINSFILE_agentes #21'.
 [Checks API] No suitable checks publisher found.
 [Pipeline] }
 [Pipeline] // catchError
@@ -227,7 +230,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8] No filter has been set, publishing all 9 issues
 [Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
 [Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
-[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\19\files-with-issues'
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\21\files-with-issues'
 [Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Flake8] Skipping cleaning of source code files in old builds
 [Flake8] Repository miner is not configured, skipping repository mining
@@ -249,7 +252,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8] No filter has been set, publishing all 9 issues
 [Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
 [Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
-[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\19\files-with-issues'
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\21\files-with-issues'
 [Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Flake8] Skipping cleaning of source code files in old builds
 [Flake8] Repository miner is not configured, skipping repository mining
@@ -263,7 +266,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 9, Quality gate: 10,00)
 [Flake8] Health report is disabled - skipping
 [Flake8] Created analysis result for 9 issues (found 0 new issues, fixed 0 issues)
-[Flake8] Attaching ResultAction with ID 'flake8' to build 'Unir/JENKINSFILE_agentes #19'.
+[Flake8] Attaching ResultAction with ID 'flake8' to build 'Unir/JENKINSFILE_agentes #21'.
 [Checks API] No suitable checks publisher found.
 [Pipeline] }
 [Pipeline] // node
@@ -292,18 +295,6 @@ Amaro
 C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes 
 C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes
 [Pipeline] bat
-
-C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe run --branch --source=app --omit=app\__init__.py,app\api.py -m pytest test\unit 
-============================= test session starts =============================
-platform win32 -- Python 3.13.0, pytest-8.3.4, pluggy-1.5.0
-rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes
-configfile: pytest.ini
-collected 10 items
-
-test\unit\calc_test.py ........                                          [ 80%]
-test\unit\util_test.py ..                                                [100%]
-
-============================= 10 passed in 0.04s ==============================
 
 C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe xml 
 Wrote XML report to coverage.xml
@@ -358,10 +349,10 @@ WARN StatusConsoleListener The use of package scanning to locate plugins is depr
 WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
 Creating summariser <summary>
 Created the tree successfully using test\jmeter\flask.jmx
-Starting standalone test @ 2025 Jan 23 09:37:21 CET (1737621441336)
+Starting standalone test @ 2025 Jan 25 12:01:56 CET (1737802916113)
 Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
-summary =    160 in 00:00:01 =  158.1/s Avg:     6 Min:     2 Max:    40 Err:     0 (0.00%)
-Tidying up ...    @ 2025 Jan 23 09:37:22 CET (1737621442451)
+summary =    200 in 00:00:01 =  223.5/s Avg:     1 Min:     1 Max:    19 Err:     0 (0.00%)
+Tidying up ...    @ 2025 Jan 25 12:01:57 CET (1737802917089)
 ... end of run
 [Pipeline] script
 [Pipeline] {
@@ -369,8 +360,8 @@ Tidying up ...    @ 2025 Jan 23 09:37:22 CET (1737621442451)
 Creating parser with percentiles:'0,50,90,95,100,' filterRegex:null
 Performance: Recording JMeterCsv reports '**/flask.jtl'
 Performance: JMeterCsv copying reports to master, files '[C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes\flask.jtl]'
-Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\19\performance-reports\JMeterCSV\flask.jtl]'
-Performance: Parsing report file 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\19\performance-reports\JMeterCSV\flask.jtl' with filterRegex 'null'.
+Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\21\performance-reports\JMeterCSV\flask.jtl]'
+Performance: Parsing report file 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes\builds\21\performance-reports\JMeterCSV\flask.jtl' with filterRegex 'null'.
 Performance: No threshold configured for making the test unstable
 Performance: No threshold configured for making the test failure
 Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE
@@ -380,5 +371,7 @@ Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: 
 [Pipeline] // node
 [Pipeline] }
 [Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
 [Pipeline] End of Pipeline
 Finished: UNSTABLE

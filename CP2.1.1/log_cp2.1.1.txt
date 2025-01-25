@@ -2,8 +2,8 @@ Lanzada por el usuario Giovanna leon
 
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins 
- in C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
+Running on agent2
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1
 [Pipeline] {
 [Pipeline] withEnv
 [Pipeline] {
@@ -12,53 +12,54 @@ Running on Jenkins
 [Pipeline] git
 The recommended git tool is: NONE
 No credentials specified
- > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\.git # timeout=10
 Fetching changes from the remote Git repository
+Checking out Revision a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 (refs/remotes/origin/master)
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\.git # timeout=10
  > git.exe config remote.origin.url https://github.com/GiovannaLeon/helloworld.git # timeout=10
 Fetching upstream changes from https://github.com/GiovannaLeon/helloworld.git
  > git.exe --version # timeout=10
  > git --version # 'git version 2.47.1.windows.1'
  > git.exe fetch --tags --force --progress -- https://github.com/GiovannaLeon/helloworld.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
-Checking out Revision eb8d8309fcd89b880e7bc330d180dfeceaf53b9a (refs/remotes/origin/master)
  > git.exe config core.sparsecheckout # timeout=10
- > git.exe checkout -f eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
+ > git.exe checkout -f a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
  > git.exe branch -a -v --no-abbrev # timeout=10
- > git.exe branch -D master # timeout=10
- > git.exe checkout -b master eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
 Commit message: "Add files via upload"
- > git.exe rev-list --no-walk eb8d8309fcd89b880e7bc330d180dfeceaf53b9a # timeout=10
+ > git.exe branch -D master # timeout=10
+ > git.exe checkout -b master a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
+ > git.exe rev-list --no-walk a6361a5a1b8b84333ac998b3d5e0995a8e0dbd70 # timeout=10
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>dir
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>dir
  El volumen de la unidad C es Windows
  El n£mero de serie del volumen es: 6475-04AA
 
- Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
+ Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1
 
-20/01/2025  01:11    <DIR>          .
-19/01/2025  01:21    <DIR>          ..
-20/01/2025  01:11            53.248 .coverage
-19/01/2025  01:21                40 .gitignore
-19/01/2025  01:21    <DIR>          .pytest_cache
-19/01/2025  01:21    <DIR>          app
-20/01/2025  01:11               382 bandit.out
-20/01/2025  01:11             2.239 coverage.xml
-20/01/2025  01:11               500 flake8.out
-20/01/2025  01:11            19.938 flask.jtl
-19/01/2025  01:21    <DIR>          jenkinsFile_1
-19/01/2025  01:21    <DIR>          jenkinsFile_2
-19/01/2025  01:21    <DIR>          JenkinsFile_3
-19/01/2025  01:21    <DIR>          jenkinsfile_4
-20/01/2025  01:11            10.405 jmeter.log
-19/01/2025  01:21               175 pytest.ini
-19/01/2025  01:21               418 README.md
-20/01/2025  01:11             1.401 result-unit.xml
-19/01/2025  01:21    <DIR>          test
-              10 archivos         88.746 bytes
-               9 dirs  563.545.436.160 bytes libres
+25/01/2025  11:56    <DIR>          .
+24/01/2025  01:01    <DIR>          ..
+25/01/2025  11:56            53.248 .coverage
+24/01/2025  00:40                40 .gitignore
+24/01/2025  00:40    <DIR>          .pytest_cache
+24/01/2025  00:40    <DIR>          app
+25/01/2025  11:56               426 bandit.out
+25/01/2025  11:56             2.261 coverage.xml
+25/01/2025  11:42    <DIR>          CP2.1.1
+25/01/2025  11:56               500 flake8.out
+25/01/2025  11:56            19.938 flask.jtl
+24/01/2025  00:40    <DIR>          jenkinsFile_1
+24/01/2025  00:40    <DIR>          jenkinsFile_2
+24/01/2025  00:40    <DIR>          JenkinsFile_3
+24/01/2025  00:40    <DIR>          jenkinsfile_4
+25/01/2025  11:56            10.845 jmeter.log
+24/01/2025  00:40               175 pytest.ini
+24/01/2025  00:40               418 README.md
+25/01/2025  11:56             1.401 result-unit.xml
+24/01/2025  00:40    <DIR>          test
+              10 archivos         89.252 bytes
+              10 dirs  560.740.134.912 bytes libres
 [Pipeline] echo
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
@@ -67,20 +68,20 @@ C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
 [Pipeline] {
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>SET PYTHONPATH=C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>SET PYTHONPATH=C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1 
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\Local\Programs\Python\Python313\python.exe -m pytest --junitxml=result-unit.xml test\unit 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe run --branch --source=app --omit=app\__init__.py,app\api.py -m pytest  --junitxml=result-unit.xml test\unit 
 ============================= test session starts =============================
 platform win32 -- Python 3.13.0, pytest-8.3.4, pluggy-1.5.0
-rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
+rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1
 configfile: pytest.ini
 collected 10 items
 
 test\unit\calc_test.py ........                                          [ 80%]
 test\unit\util_test.py ..                                                [100%]
 
-- generated xml file: C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\result-unit.xml -
-============================= 10 passed in 0.09s ==============================
+- generated xml file: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\result-unit.xml -
+============================= 10 passed in 0.10s ==============================
 [Pipeline] sleep
 Sleeping for 5 Seg
 [Pipeline] junit
@@ -94,19 +95,7 @@ Grabando resultados de tests
 [Pipeline] { (Coverage)
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe run --branch --source=app --omit=app\__init__.py,app\api.py -m pytest test\unit 
-============================= test session starts =============================
-platform win32 -- Python 3.13.0, pytest-8.3.4, pluggy-1.5.0
-rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2
-configfile: pytest.ini
-collected 10 items
-
-test\unit\calc_test.py ........                                          [ 80%]
-test\unit\util_test.py ..                                                [100%]
-
-============================= 10 passed in 0.08s ==============================
-
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe xml 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe xml 
 Wrote XML report to coverage.xml
 [Pipeline] catchError
 [Pipeline] {
@@ -125,19 +114,19 @@ Wrote XML report to coverage.xml
 [Pipeline] { (Static)
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\flake8.exe --exit-zero --format=pylint --exit-zero app  1>flake8.out 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\flake8.exe --exit-zero --format=pylint --exit-zero app  1>flake8.out 
 [Pipeline] recordIssues
 WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.core.util.WarningsQualityGate': healthy
-[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2' that match the pattern '**/flake8.out'
+[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1' that match the pattern '**/flake8.out'
 [Flake8] Traversing of symbolic links: enabled
 [Flake8] -> found 1 file
-[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\flake8.out
+[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\flake8.out
 [Flake8] -> found 9 issues (skipped 0 duplicates)
 [Flake8] Successfully processed file 'flake8.out'
-[Flake8] Post processing issues on 'Master' with source code encoding 'windows-1252'
+[Flake8] Post processing issues on 'agent2' with source code encoding 'windows-1252'
 [Flake8] Creating SCM blamer to obtain author and commit information for affected files
 [Flake8] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
-[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2'
+[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1'
 [Flake8] -> resolved paths in source directory (2 found, 0 not found)
 [Flake8] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
 [Flake8] -> resolved module names for 9 issues
@@ -146,20 +135,20 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8] No filter has been set, publishing all 9 issues
 [Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
 [Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
-[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\files-with-issues'
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\files-with-issues'
 [Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Flake8] Skipping cleaning of source code files in old builds
 [Flake8] Repository miner is not configured, skipping repository mining
-[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2' that match the pattern '**/flake8.out'
+[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1' that match the pattern '**/flake8.out'
 [Flake8] Traversing of symbolic links: enabled
 [Flake8] -> found 1 file
-[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\flake8.out
+[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\flake8.out
 [Flake8] -> found 9 issues (skipped 0 duplicates)
 [Flake8] Successfully processed file 'flake8.out'
-[Flake8] Post processing issues on 'Master' with source code encoding 'windows-1252'
+[Flake8] Post processing issues on 'agent2' with source code encoding 'windows-1252'
 [Flake8] Creating SCM blamer to obtain author and commit information for affected files
 [Flake8] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
-[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2'
+[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1'
 [Flake8] -> resolved paths in source directory (2 found, 0 not found)
 [Flake8] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
 [Flake8] -> resolved module names for 9 issues
@@ -168,7 +157,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8] No filter has been set, publishing all 9 issues
 [Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
 [Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
-[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\files-with-issues'
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\files-with-issues'
 [Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Flake8] Skipping cleaning of source code files in old builds
 [Flake8] Repository miner is not configured, skipping repository mining
@@ -182,7 +171,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Flake8]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 9, Quality gate: 10,00)
 [Flake8] Health report is disabled - skipping
 [Flake8] Created analysis result for 9 issues (found 0 new issues, fixed 0 issues)
-[Flake8] Attaching ResultAction with ID 'flake8' to build 'Unir/CP2.1.1 #37'.
+[Flake8] Attaching ResultAction with ID 'flake8' to build 'Unir/CP2.1.1 #68'.
 [Checks API] No suitable checks publisher found.
 [Pipeline] }
 [Pipeline] // stage
@@ -190,7 +179,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Pipeline] { (Security)
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}" 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}" 
 [main]	INFO	profile include tests: None
 [main]	INFO	profile exclude tests: None
 [main]	INFO	cli include tests: None
@@ -201,16 +190,16 @@ C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\AppData\
 [Pipeline] {
 [Pipeline] recordIssues
 WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.core.util.WarningsQualityGate': healthy
-[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2' that match the pattern '**/bandit.out'
+[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1' that match the pattern '**/bandit.out'
 [Bandit] Traversing of symbolic links: enabled
 [Bandit] -> found 1 file
-[Bandit] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\bandit.out
+[Bandit] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\bandit.out
 [Bandit] -> found 2 issues (skipped 0 duplicates)
 [Bandit] Successfully processed file 'bandit.out'
-[Bandit] Post processing issues on 'Master' with source code encoding 'windows-1252'
+[Bandit] Post processing issues on 'agent2' with source code encoding 'windows-1252'
 [Bandit] Creating SCM blamer to obtain author and commit information for affected files
 [Bandit] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
-[Bandit] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2'
+[Bandit] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1'
 [Bandit] -> resolved paths in source directory (1 found, 0 not found)
 [Bandit] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
 [Bandit] -> resolved module names for 2 issues
@@ -219,20 +208,20 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Bandit] No filter has been set, publishing all 2 issues
 [Bandit] Creating fingerprints for all affected code blocks to track issues over different builds
 [Bandit] -> created fingerprints for 2 issues (skipped 0 issues)
-[Bandit] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\files-with-issues'
+[Bandit] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\files-with-issues'
 [Bandit] -> 1 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Bandit] Skipping cleaning of source code files in old builds
 [Bandit] Repository miner is not configured, skipping repository mining
-[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2' that match the pattern '**/bandit.out'
+[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1' that match the pattern '**/bandit.out'
 [Bandit] Traversing of symbolic links: enabled
 [Bandit] -> found 1 file
-[Bandit] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\bandit.out
+[Bandit] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\bandit.out
 [Bandit] -> found 2 issues (skipped 0 duplicates)
 [Bandit] Successfully processed file 'bandit.out'
-[Bandit] Post processing issues on 'Master' with source code encoding 'windows-1252'
+[Bandit] Post processing issues on 'agent2' with source code encoding 'windows-1252'
 [Bandit] Creating SCM blamer to obtain author and commit information for affected files
 [Bandit] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
-[Bandit] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2'
+[Bandit] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1'
 [Bandit] -> resolved paths in source directory (1 found, 0 not found)
 [Bandit] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
 [Bandit] -> resolved module names for 2 issues
@@ -241,7 +230,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Bandit] No filter has been set, publishing all 2 issues
 [Bandit] Creating fingerprints for all affected code blocks to track issues over different builds
 [Bandit] -> created fingerprints for 2 issues (skipped 0 issues)
-[Bandit] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\files-with-issues'
+[Bandit] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\files-with-issues'
 [Bandit] -> 1 copied, 0 not in workspace, 0 not-found, 0 with I/O error
 [Bandit] Skipping cleaning of source code files in old builds
 [Bandit] Repository miner is not configured, skipping repository mining
@@ -255,7 +244,7 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Bandit]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 2, Quality gate: 4,00)
 [Bandit] Health report is disabled - skipping
 [Bandit] Created analysis result for 2 issues (found 0 new issues, fixed 0 issues)
-[Bandit] Attaching ResultAction with ID 'pylint' to build 'Unir/CP2.1.1 #37'.
+[Bandit] Attaching ResultAction with ID 'pylint' to build 'Unir/CP2.1.1 #68'.
 [Checks API] No suitable checks publisher found.
 [Pipeline] }
 [Pipeline] // catchError
@@ -265,22 +254,23 @@ WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.
 [Pipeline] { (Performance)
 [Pipeline] bat
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>SET FLASK_APP=app\api.py 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>SET FLASK_APP=app\api.py 
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>start /B C:\Users\amaro\AppData\Local\Programs\Python\Python313\python.exe -m flask run --host=0.0.0.0 --port=5000 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>start /B C:\Users\amaro\AppData\Local\Programs\Python\Python313\python.exe -m flask run --host=0.0.0.0 --port=5000 
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>timeout /t 10 /nobreak  // Espera 10 segundos para asegurarse de que Flask estÃ© listo antes de correr las pruebas 
-ERROR: Sintaxis no v lida. La opci¢n predeterminada no est  permitida m s
-de "1" veces.
-Escriba "TIMEOUT /?" para su uso.
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>timeout /t 10 /nobreak 
+ERROR: No es compatible la redirecci¢n de entradas, saliendo inmediatamente
+       del proceso.
 
-C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2>C:\Users\amaro\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin\jmeter -n -t test\jmeter\flask.jmx -f -l flask.jtl 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>rem Espera 10 segundos para asegurarse de que Flask estÃ© listo antes de correr las pruebas 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1>C:\Users\amaro\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin\jmeter -n -t test\jmeter\flask.jmx -f -l flask.jtl 
  * Serving Flask app 'app\api.py'
  * Debug mode: off
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.48:5000
+ * Running on http://192.168.1.57:5000
 Press CTRL+C to quit
 WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
 WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
@@ -288,183 +278,36 @@ WARN StatusConsoleListener The use of package scanning to locate plugins is depr
 WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
 Creating summariser <summary>
 Created the tree successfully using test\jmeter\flask.jmx
-Starting standalone test @ 2025 Jan 20 18:30:30 CET (1737394230586)
+Starting standalone test @ 2025 Jan 25 13:26:42 CET (1737808002798)
 Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-summary +      1 in 00:00:00 =    4.3/s Avg:    40 Min:    40 Max:    40 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:30] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/add/4/9 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Jan/2025 18:30:31] "GET /calc/substract/25/19 HTTP/1.1" 200 -
-summary +    159 in 00:00:01 =  206.0/s Avg:     5 Min:     1 Max:    40 Err:     0 (0.00%) Active: 0 Started: 20 Finished: 20
-summary =    160 in 00:00:01 =  158.9/s Avg:     5 Min:     1 Max:    40 Err:     0 (0.00%)
-Tidying up ...    @ 2025 Jan 20 18:30:31 CET (1737394231697)
+summary =    160 in 00:00:01 =  163.3/s Avg:     2 Min:     1 Max:    33 Err:     0 (0.00%)
+Tidying up ...    @ 2025 Jan 25 13:26:43 CET (1737808003855)
 ... end of run
 [Pipeline] script
 [Pipeline] {
+[Pipeline] readFile
+[Pipeline] echo
+Archivo coverage.xml leído correctamente.
+[Pipeline] echo
+Expresión 1.
+[Pipeline] echo
+Expresión 2.
+[Pipeline] echo
+Valor de lineCoverageMatch: java.util.regex.Matcher[pattern=<counter type="line" covered="(\d+)" region=0,2261 lastmatch=]
+[Pipeline] echo
+Valor de lineCoverage: 0
+[Pipeline] echo
+Valor de branchCoverageMatch: java.util.regex.Matcher[pattern=<counter type="branch" covered="(\d+)"  region=0,2261 lastmatch=]
+[Pipeline] echo
+Valor de branchCoverage: 0
 [Pipeline] catchError
 [Pipeline] {
 [Pipeline] perfReport
 Creating parser with percentiles:'0,50,90,95,100,' filterRegex:null
 Performance: Recording JMeterCsv reports '**/flask.jtl'
-Performance: JMeterCsv copying reports to master, files '[C:\ProgramData\Jenkins\.jenkins\workspace\Unir\CP2.1.1@2\flask.jtl]'
-Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\performance-reports\JMeterCSV\flask.jtl]'
-Performance: Parsing report file 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\37\performance-reports\JMeterCSV\flask.jtl' with filterRegex 'null'.
+Performance: JMeterCsv copying reports to master, files '[C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\CP2.1.1\flask.jtl]'
+Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\performance-reports\JMeterCSV\flask.jtl]'
+Performance: Parsing report file 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\CP2.1.1\builds\68\performance-reports\JMeterCSV\flask.jtl' with filterRegex 'null'.
 Performance: No threshold configured for making the test unstable
 Performance: No threshold configured for making the test failure
 Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE

@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         PYTHON_PATH = "C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+        PYTHON_PATH_SCRIPTS = "C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts"
+
     }
 
     stages {
@@ -20,7 +22,10 @@ pipeline {
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                     bat '''
                         SET PYTHONPATH=%WORKSPACE%
-                        %PYTHON_PATH% -m pytest --junitxml=result-unit.xml test\\unit
+                        %PYTHON_PATH_SCRIPTS%\\coverage.exe run --branch --source=app --omit=app\\__init__.py,app\\api.py -m pytest  --junitxml=result-unit.xml test\\unit
+                 
+                        
+                    
                     '''
                     sleep(5) // Asegúrate de que los resultados estén listos
                     junit 'result-unit.xml' // Reporte de las pruebas unitarias
@@ -32,20 +37,21 @@ pipeline {
         stage('Coverage') {
             steps {
                 bat '''
-                    C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\coverage.exe run --branch --source=app --omit=app\\__init__.py,app\\api.py -m pytest test\\unit
-                    C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\coverage.exe xml
+                   %PYTHON_PATH_SCRIPTS%\\coverage.exe xml
                 '''
+                
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                     cobertura coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '100,0,80', lineCoverageTargets: '100,0,90'
                 }
             }
         }
 
+
         // Etapa de Análisis Estático (Flake8)
         stage('Static') {
             steps {
                 bat '''
-                    C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\flake8.exe --exit-zero --format=pylint --exit-zero app >flake8.out
+                    %PYTHON_PATH_SCRIPTS%\\flake8.exe --exit-zero --format=pylint --exit-zero app >flake8.out
                 '''
                 // Umbrales para Flake8
                 recordIssues tools: [flake8(name: 'Flake8', pattern: '**/flake8.out')],
@@ -60,7 +66,7 @@ pipeline {
         stage('Security') {
             steps {
                 bat '''
-                    C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}"
+                    %PYTHON_PATH_SCRIPTS%\\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}"
                 '''
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     // Usamos el patrón relativo para buscar 'bandit.out' y aplicar los Quality Gates
@@ -76,35 +82,70 @@ pipeline {
        // Etapa de Pruebas de Rendimiento (JMeter)
         stage('Performance') {
             steps {
-                bat '''
+                 bat '''
                     SET FLASK_APP=app\\api.py
-                    start /B C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m flask run --host=0.0.0.0 --port=5000
-                    timeout /t 10 /nobreak  // Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
+                    start /B %PYTHON_PATH% -m flask run --host=0.0.0.0 --port=5000
+                    timeout /t 10 /nobreak
+                    rem Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
                     C:\\Users\\amaro\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter -n -t test\\jmeter\\flask.jmx -f -l flask.jtl
                 '''
                 
                 script {
-                    // Verificar cobertura por líneas y ramas (estos valores deben provenir de la herramienta de cobertura)
-                    def coberturaLineas = 90 // Este valor debe ser obtenido de la herramienta de cobertura
-                    def coberturaRamas = 85  // Este valor también debe ser obtenido de la herramienta de cobertura
+                    
+                    // Leemos el archivo coverage.xml generado
+                   // def coverageFile = readFile('../coverage.xml')
+                 
+                 try {
+                        def coverageFile = readFile('coverage.xml')
+                        echo "Archivo coverage.xml leído correctamente."
+                
+                    // Expresión regular para extraer la cobertura de líneas
+                    def lineCoverageMatch = (coverageFile =~ /<counter type="line" covered="(\d+)"/)
+                    def lineCoverage = lineCoverageMatch ? lineCoverageMatch[0][1].toInteger() : 0
+                    echo "Expresión 1."
+                
+                    // Expresión regular para extraer la cobertura de ramas
+                    def branchCoverageMatch = (coverageFile =~ /<counter type="branch" covered="(\d+)" /)
+                    def branchCoverage = branchCoverageMatch ? branchCoverageMatch[0][1].toInteger() : 0
+                    echo "Expresión 2."
+            
+                echo "Valor de lineCoverageMatch: ${lineCoverageMatch}"
+                
+                echo "Valor de lineCoverage: ${lineCoverage}"
+            
+                
+                echo "Valor de branchCoverageMatch: ${branchCoverageMatch}"
+                
+                echo "Valor de branchCoverage: ${branchCoverage}"
+                
+                    // Verificar cobertura por líneas
+                    //if (lineCoverage < 85) {
+                     //   currentBuild.result = 'FAILURE'
+                    //} else if (lineCoverage < 95) {
+                     //   currentBuild.result = 'UNSTABLE'
+                    //} else {
+                    //    currentBuild.result = 'SUCCESS'
+                    //}
+                    //echo "Expresión 3."
+                
+                    // Verificar cobertura por ramas/condiciones
+                    //if (branchCoverage < 80) {
+                      //  currentBuild.result = 'FAILURE'
+                    //} else if (branchCoverage < 90) {
+                      //  currentBuild.result = 'UNSTABLE'
+                    //} else {
+                      //  currentBuild.result = 'SUCCESS'
+                    //}
+                    //echo "Expresión 4."
+                
 
-                    // Verificar y asignar el estado para cobertura por líneas
-                    if (coberturaLineas < 85) {
-                        currentBuild.result = 'FAILURE'
-                    } else if (coberturaLineas < 95) {
-                        currentBuild.result = 'UNSTABLE'
-                    } else {
-                        currentBuild.result = 'SUCCESS'
+
+                    } catch (Exception e) {
+                        echo "Error al leer coverage.xml: ${e.message}"
                     }
 
-                    // Verificar y asignar el estado para cobertura por ramas/condiciones
-                    if (coberturaRamas < 80) {
-                        currentBuild.result = 'FAILURE'
-                    } else if (coberturaRamas < 90) {
-                        currentBuild.result = 'UNSTABLE'
-                    } else {
-                        currentBuild.result = 'SUCCESS'
-                    }
+                 
+              
 
                     // Después de la ejecución de las pruebas de rendimiento y la cobertura, procesamos el reporte
                     catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
