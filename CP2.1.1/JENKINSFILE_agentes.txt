@@ -90,7 +90,7 @@ agent none
                     %PYTHON_PATH_SCRIPTS%\\coverage.exe xml
                 '''
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                    cobertura coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '100,0,80', lineCoverageTargets: '100,0,90'
+                    cobertura coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '100,80,90', lineCoverageTargets: '100,85,95'
                 }
             }
         }
@@ -104,8 +104,8 @@ agent none
                 bat '''
                  SET FLASK_APP=app\\api.py
                     start /B %PYTHON_PATH% -m flask run --host=0.0.0.0 --port=5000
-                    timeout /t 20 /nobreak  // Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
-                   
+                    timeout /t 10 /nobreak
+                    rem Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
                     C:\\Users\\amaro\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter -n -t test\\jmeter\\flask.jmx -f -l flask.jtl
                 '''
                 script {
