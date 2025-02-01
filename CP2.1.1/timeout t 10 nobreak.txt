@@ -1,0 +1,19 @@
+         timeout /t 10 /nobreak
+                    rem Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
+          
+covergaçç
+100 80 90
+1008595
+
+def divide(self, x, y):
+    self.check_types(x, y)
+    if y == 0:
+        return float('inf')  # O el valor que prefieras (None, 0, etc.)
+    return x / y
+
+
+
+
+ --host=0.0.0.0 --port=5000
+                     timeout /t 10 /nobreak
+                    rem Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
