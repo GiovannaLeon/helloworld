@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pipeline {
     agent none
    environment {
@@ -113,4 +114,121 @@ pipeline {
             }
         }
     }
+=======
+pipeline {
+    agent none
+   environment {
+        PYTHON_PATH = "C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+        PYTHON_PATH_SCRIPTS = "C:\\Users\\amaro\\AppData\\Local\\Programs\\Python\\Python313\\Scripts"
+
+    }
+    stages {
+        stage('Get Code') {
+            agent { label 'agent1' }  // Agente principal
+            steps {
+                bat "whoami"
+                bat "hostname"
+                bat "echo ${WORKSPACE}"
+                git branch: 'feature_fix_coverage', url: 'https://github.com/GiovannaLeon/helloworld.git'  // Especifica la rama aquí
+                bat "dir"
+                echo "Workspace: ${WORKSPACE}"
+            }
+        }
+
+        stage('Unit') {
+            agent { label 'agent1' }  // Agente principal
+            steps {
+                bat "whoami"
+                bat "hostname"
+                bat "echo ${WORKSPACE}"
+                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                    bat '''
+                        SET PYTHONPATH=%WORKSPACE%
+                       %PYTHON_PATH_SCRIPTS%\\coverage.exe run --branch --source=app --omit=app\\__init__.py,app\\api.py -m pytest  --junitxml=result-unit.xml test\\unit
+
+                    '''
+                    sleep(5)
+                    junit 'result*.xml' // Reporte de las pruebas unitarias
+                }
+            }
+        }
+
+        stage('Static and Security Analysis') {
+            parallel {
+                stage('Static') {
+                    agent { label 'agent1' }  // Agente principal
+                    steps {
+                        bat "whoami"
+                        bat "hostname"
+                        bat "echo ${WORKSPACE}"
+                        bat '''
+                             %PYTHON_PATH_SCRIPTS%\\flake8.exe --exit-zero --format=pylint --exit-zero app >flake8.out
+                        '''
+                        // Umbrales para Flake8
+                        recordIssues tools: [flake8(name: 'Flake8', pattern: '**/flake8.out')], 
+                                      qualityGates: [
+                                          [threshold: 8, type: 'TOTAL', unstable: true],  // 8 o más hallazgos -> Unstable
+                                          [threshold: 10, type: 'TOTAL', unstable: false, healthy: false]  // 10 o más hallazgos -> Unhealthy
+                                      ]
+                    }
+                }
+
+                stage('Security') {
+                    agent { label 'agent2' }  // Agente dedicado a seguridad
+                    steps {
+                        bat "whoami"
+                        bat "hostname"
+                        bat "echo ${WORKSPACE}"
+                        bat '''
+                             %PYTHON_PATH_SCRIPTS%\\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}"
+                        '''
+                        catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                            // Usamos el patrón relativo para buscar 'bandit.out' y aplicar los Quality Gates
+                            recordIssues tools: [pyLint(name: 'Bandit', pattern: '**/bandit.out')], 
+                                         qualityGates: [
+                                             [threshold: 2, type: 'TOTAL', unstable: true],   // 2 o más hallazgos -> Unstable
+                                             [threshold: 4, type: 'TOTAL', unstable: false, healthy: false]  // 4 o más hallazgos -> Unhealthy
+                                         ]
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Coverage') {
+            agent { label 'agent1' }  // Agente principal
+            steps {
+                bat "whoami"
+                bat "hostname"
+                bat "echo ${WORKSPACE}"
+                bat '''
+                     %PYTHON_PATH_SCRIPTS%\\coverage.exe xml
+                '''
+                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                    cobertura coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '100,80,90', lineCoverageTargets: '100,85,95'
+                }
+            }
+        }
+
+        stage('Performance') {
+            agent { label 'agent3' }  // Agente dedicado a pruebas de rendimiento
+            steps {
+                bat "whoami"
+                bat "hostname"
+                bat "echo ${WORKSPACE}"
+                bat '''
+                    SET FLASK_APP=app\\api.py
+                    start /B %PYTHON_PATH% -m flask run  --host=0.0.0.0 --port=5000
+                     timeout /t 10 /nobreak
+                    rem Espera 10 segundos para asegurarse de que Flask esté listo antes de correr las pruebas
+                    C:\\Users\\amaro\\Downloads\\apache-jmeter-5.6.3\\apache-jmeter-5.6.3\\bin\\jmeter -n -t test\\jmeter\\flask.jmx -f -l flask.jtl
+                '''
+                script {
+                    // Después de la ejecución de las pruebas de rendimiento y la cobertura, procesamos el reporte
+                    perfReport sourceDataFiles: '**/flask.jtl'
+                }
+            }
+        }
+    }
+>>>>>>> 793a6da7c7235bfbd785ffc6ea43f3fc5dd21a16
 }
