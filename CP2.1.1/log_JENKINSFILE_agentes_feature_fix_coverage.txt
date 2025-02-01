@@ -1,0 +1,385 @@
+Lanzada por el usuario Giovanna leon
+
+[Pipeline] Start of Pipeline
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Get Code)
+[Pipeline] node
+Running on agent1
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Fetching changes from the remote Git repository
+Checking out Revision 8746259d10bbd15d543bfb1b7340890810e7f6aa (refs/remotes/origin/feature_fix_coverage)
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\.git # timeout=10
+ > git.exe config remote.origin.url https://github.com/GiovannaLeon/helloworld.git # timeout=10
+Fetching upstream changes from https://github.com/GiovannaLeon/helloworld.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.47.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/GiovannaLeon/helloworld.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/feature_fix_coverage^{commit}" # timeout=10
+ > git.exe config core.sparsecheckout # timeout=10
+Commit message: "Update calc_test.py"
+ > git.exe checkout -f 8746259d10bbd15d543bfb1b7340890810e7f6aa # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D feature_fix_coverage # timeout=10
+ > git.exe checkout -b feature_fix_coverage 8746259d10bbd15d543bfb1b7340890810e7f6aa # timeout=10
+ > git.exe rev-list --no-walk e77791672d9b7bb8b7ffb9c32f22896469b836c6 # timeout=10
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>dir
+ El volumen de la unidad C es Windows
+ El n£mero de serie del volumen es: 6475-04AA
+
+ Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+
+27/01/2025  15:19    <DIR>          .
+27/01/2025  15:05    <DIR>          ..
+27/01/2025  15:19            53.248 .coverage
+20/01/2025  23:58                40 .gitignore
+20/01/2025  23:58    <DIR>          .pytest_cache
+20/01/2025  23:58    <DIR>          app
+27/01/2025  15:19             2.330 coverage.xml
+27/01/2025  15:19               500 flake8.out
+20/01/2025  23:58    <DIR>          jenkinsFile_1
+20/01/2025  23:58    <DIR>          jenkinsFile_2
+20/01/2025  23:58    <DIR>          JenkinsFile_3
+20/01/2025  23:58    <DIR>          jenkinsfile_4
+20/01/2025  23:58               175 pytest.ini
+20/01/2025  23:58               418 README.md
+27/01/2025  15:19             1.816 result-unit.xml
+20/01/2025  23:58    <DIR>          test
+               7 archivos         58.527 bytes
+               9 dirs  565.921.247.232 bytes libres
+[Pipeline] echo
+Workspace: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit)
+[Pipeline] node
+Running on agent1
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] catchError
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>SET PYTHONPATH=C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe run --branch --source=app --omit=app\__init__.py,app\api.py -m pytest  --junitxml=result-unit.xml test\unit 
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-8.3.4, pluggy-1.5.0
+rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+configfile: pytest.ini
+collected 11 items
+
+test\unit\calc_test.py ........                                          [ 72%]
+test\unit\util_test.py ...                                               [100%]
+
+- generated xml file: C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\result-unit.xml -
+============================= 11 passed in 0.14s ==============================
+[Pipeline] sleep
+Sleeping for 5 Seg
+[Pipeline] junit
+Grabando resultados de tests
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // catchError
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Static and Security Analysis)
+[Pipeline] parallel
+[Pipeline] { (Branch: Static)
+[Pipeline] { (Branch: Security)
+[Pipeline] stage
+[Pipeline] { (Static)
+[Pipeline] stage
+[Pipeline] { (Security)
+[Pipeline] node
+Running on agent1
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] node
+Running on agent2
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] {
+[Pipeline] {
+[Pipeline] bat
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\flake8.exe --exit-zero --format=pylint --exit-zero app  1>flake8.out 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\bandit.exe --exit-zero -r . -f custom -o bandit.out --msg-template "{abspath}:{line}: [{test_id}] {msg}" 
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[main]	INFO	running on Python 3.13.0
+[custom]	INFO	Result written to file: bandit.out
+[Pipeline] catchError
+[Pipeline] {
+[Pipeline] recordIssues
+WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.core.util.WarningsQualityGate': healthy
+[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage' that match the pattern '**/bandit.out'
+[Bandit] Traversing of symbolic links: enabled
+[Bandit] -> found 1 file
+[Bandit] Skipping file 'bandit.out' because it's empty
+[Bandit] Skipping post processing
+[Bandit] No filter has been set, publishing all 0 issues
+[Bandit] Repository miner is not configured, skipping repository mining
+[Bandit] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent2\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage' that match the pattern '**/bandit.out'
+[Bandit] Traversing of symbolic links: enabled
+[Bandit] -> found 1 file
+[Bandit] Skipping file 'bandit.out' because it's empty
+[Bandit] Skipping post processing
+[Bandit] No filter has been set, publishing all 0 issues
+[Bandit] Repository miner is not configured, skipping repository mining
+[Bandit] Reference build recorder is not configured
+[Bandit] No valid reference build found
+[Bandit] All reported issues will be considered outstanding
+[Bandit] Evaluating quality gates
+[Bandit] -> All quality gates have been passed
+[Bandit] -> Details for each quality gate:
+[Bandit]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 0, Quality gate: 2,00)
+[Bandit]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 0, Quality gate: 4,00)
+[Bandit] Health report is disabled - skipping
+[Bandit] Created analysis result for 0 issues (found 0 new issues, fixed 0 issues)
+[Bandit] Attaching ResultAction with ID 'pylint' to build 'Unir/JENKINSFILE_agentes_feature_fix_coverage #31'.
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // catchError
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] recordIssues
+WARNING: Unknown parameter(s) found for class type 'io.jenkins.plugins.analysis.core.util.WarningsQualityGate': healthy
+[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage' that match the pattern '**/flake8.out'
+[Flake8] Traversing of symbolic links: enabled
+[Flake8] -> found 1 file
+[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\flake8.out
+[Flake8] -> found 9 issues (skipped 0 duplicates)
+[Flake8] Successfully processed file 'flake8.out'
+[Flake8] Post processing issues on 'agent1' with source code encoding 'windows-1252'
+[Flake8] Creating SCM blamer to obtain author and commit information for affected files
+[Flake8] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage'
+[Flake8] -> resolved paths in source directory (2 found, 0 not found)
+[Flake8] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[Flake8] -> resolved module names for 9 issues
+[Flake8] Resolving package names (or namespaces) by parsing the affected files
+[Flake8] -> resolved package names of 2 affected files
+[Flake8] No filter has been set, publishing all 9 issues
+[Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
+[Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\files-with-issues'
+[Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[Flake8] Skipping cleaning of source code files in old builds
+[Flake8] Repository miner is not configured, skipping repository mining
+[Flake8] Searching for all files in 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage' that match the pattern '**/flake8.out'
+[Flake8] Traversing of symbolic links: enabled
+[Flake8] -> found 1 file
+[Flake8] Successfully parsed file C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\flake8.out
+[Flake8] -> found 9 issues (skipped 0 duplicates)
+[Flake8] Successfully processed file 'flake8.out'
+[Flake8] Post processing issues on 'agent1' with source code encoding 'windows-1252'
+[Flake8] Creating SCM blamer to obtain author and commit information for affected files
+[Flake8] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[Flake8] Resolving file names for all issues in workspace 'C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage'
+[Flake8] -> resolved paths in source directory (2 found, 0 not found)
+[Flake8] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[Flake8] -> resolved module names for 9 issues
+[Flake8] Resolving package names (or namespaces) by parsing the affected files
+[Flake8] -> resolved package names of 2 affected files
+[Flake8] No filter has been set, publishing all 9 issues
+[Flake8] Creating fingerprints for all affected code blocks to track issues over different builds
+[Flake8] -> created fingerprints for 9 issues (skipped 0 issues)
+[Flake8] Copying affected files to Jenkins' build folder 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\files-with-issues'
+[Flake8] -> 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[Flake8] Skipping cleaning of source code files in old builds
+[Flake8] Repository miner is not configured, skipping repository mining
+[Flake8] Reference build recorder is not configured
+[Flake8] No valid reference build found
+[Flake8] All reported issues will be considered outstanding
+[Flake8] Evaluating quality gates
+[Flake8] -> Some quality gates have been missed: overall result is UNSTABLE
+[Flake8] -> Details for each quality gate:
+[Flake8]    - [Total (any severity)]: ≪Inestable≫ - (Actual value: 9, Quality gate: 8,00)
+[Flake8]    - [Total (any severity)]: ≪Correcto≫ - (Actual value: 9, Quality gate: 10,00)
+[Flake8] Health report is disabled - skipping
+[Flake8] Created analysis result for 9 issues (found 0 new issues, fixed 0 issues)
+[Flake8] Attaching ResultAction with ID 'flake8' to build 'Unir/JENKINSFILE_agentes_feature_fix_coverage #31'.
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Coverage)
+[Pipeline] node
+Running on agent1
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent1\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>C:\Users\amaro\AppData\Local\Programs\Python\Python313\Scripts\coverage.exe xml 
+Wrote XML report to coverage.xml
+[Pipeline] catchError
+[Pipeline] {
+[Pipeline] cobertura
+[Cobertura] Skipping Cobertura coverage report as build was not SUCCESS or better ...
+
+[Pipeline] }
+[Pipeline] // catchError
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Performance)
+[Pipeline] node
+Running on agent3
+ in C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>whoami
+amaro\amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>hostname
+Amaro
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>echo C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage 
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>SET FLASK_APP=app\api.py 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>start /B C:\Users\amaro\AppData\Local\Programs\Python\Python313\python.exe -m flask run  --host=0.0.0.0 --port=5000 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>timeout /t 10 /nobreak 
+ERROR: No es compatible la redirecci¢n de entradas, saliendo inmediatamente
+       del proceso.
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>rem Espera 10 segundos para asegurarse de que Flask estÃ© listo antes de correr las pruebas 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage>C:\Users\amaro\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin\jmeter -n -t test\jmeter\flask.jmx -f -l flask.jtl 
+Usage: python -m flask run [OPTIONS]
+Try 'python -m flask run --help' for help.
+
+Error: Could not import 'api'.
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using test\jmeter\flask.jmx
+Starting standalone test @ 2025 Jan 27 15:22:02 CET (1737987722266)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      1 in 00:00:00 =    8.9/s Avg:    12 Min:    12 Max:    12 Err:     1 (100.00%) Active: 1 Started: 1 Finished: 0
+summary +    199 in 00:00:01 =  262.9/s Avg:     0 Min:     0 Max:     3 Err:   199 (100.00%) Active: 0 Started: 5 Finished: 5
+summary =    200 in 00:00:01 =  229.9/s Avg:     0 Min:     0 Max:    12 Err:   200 (100.00%)
+Tidying up ...    @ 2025 Jan 27 15:22:03 CET (1737987723220)
+... end of run
+[Pipeline] script
+[Pipeline] {
+[Pipeline] perfReport
+Creating parser with percentiles:'0,50,90,95,100,' filterRegex:null
+Performance: Recording JMeterCsv reports '**/flask.jtl'
+Performance: JMeterCsv copying reports to master, files '[C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\flask.jtl, C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\test\jmeter\flask.jtl]'
+Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\performance-reports\JMeterCSV\flask.jtl, C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\performance-reports\JMeterCSV\flask.jtl]'
+Performance: Parsing report file 'C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\performance-reports\JMeterCSV\flask.jtl' with filterRegex 'null'.
+Performance: Recording JMeterCsv reports '**/flask.jtl'
+Performance: JMeterCsv copying reports to master, files '[C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\flask.jtl, C:\ProgramData\Jenkins\.jenkins\workspace\agents\agent3\workspace\Unir\JENKINSFILE_agentes_feature_fix_coverage\test\jmeter\flask.jtl]'
+Performance: JMeterCsv parsing local reports '[C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\performance-reports\JMeterCSV\flask.jtl, C:\ProgramData\Jenkins\.jenkins\jobs\Unir\jobs\JENKINSFILE_agentes_feature_fix_coverage\builds\31\performance-reports\JMeterCSV\flask.jtl]'
+Performance: No threshold configured for making the test unstable
+Performance: No threshold configured for making the test failure
+Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE
+Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE
+Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE
+Performance: File flask.jtl reported 0.0% of errors [SUCCESS]. Build status is: UNSTABLE
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] End of Pipeline
+Finished: UNSTABLE
